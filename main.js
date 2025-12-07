@@ -9,8 +9,8 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.1, 10000);
 const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg') });
 // Set the camera starting position
-camera.position.set(800, 200, -200);  // Adjust the x, y, and z values to your desired starting point
-// Make the camera look at the center of the scene (or another object, e.g., the sun)
+camera.position.set(800, 200, -200);  
+
 camera.lookAt(0, 0, 0);  // Change the target coordinates as needed
 
 
@@ -356,7 +356,7 @@ function animateHalleyComet() {
 animateHalleyComet();
 
 
-// Add "Halley's Comet" to planet labels
+// Add "Halley's Comet wooooooo!
 const halleyLabelDiv = document.createElement('div');
 halleyLabelDiv.textContent = "Halley's Comet ❄";
 halleyLabelDiv.style.position = 'absolute';
@@ -408,35 +408,35 @@ function createHorizontalEllipseOrbit(a, b, xOffset, zOffset, color) {
 }
 
 
-// Amors asteroid with elliptical orbit
+// asteroid with elliptical orbit
 const amor = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 2), new THREE.MeshBasicMaterial({ color: 0x898989}));
 scene.add(amor);
 
-// Amors orbit (horizontal elliptical orbit)
+
 const amorOrbit = createHorizontalEllipseOrbit(320, 290, -30, 0, 0x737373); // Adjusted for horizontal
 scene.add(amorOrbit);
 
-// Apollos asteroid
+
 const apollo = new THREE.Mesh(new THREE.SphereGeometry(1.1, 32, 32), new THREE.MeshBasicMaterial({ color: 0x898989a }));
 scene.add(apollo);
 
-// Apollos orbit (horizontal elliptical orbit)
+
 const apolloOrbit = createHorizontalEllipseOrbit(360, 290, 40, 0, 0x737373); // Horizontal orientation
 scene.add(apolloOrbit);
 
-// Atens asteroid
+
 const aten = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), new THREE.MeshBasicMaterial({ color: 0x898989 }));
 scene.add(aten);
 
-// Atens orbit (horizontal elliptical orbit)
+
 const atenOrbit = createHorizontalEllipseOrbit(270, 290, 20, 0, 0x737373);
 scene.add(atenOrbit);
 
-// Atiras asteroid
+
 const atira = new THREE.Mesh(new THREE.SphereGeometry(0.8, 32, 32), new THREE.MeshBasicMaterial({ color: 0x737373}));
 scene.add(atira);
 
-// Atiras orbit (horizontal elliptical orbit)
+
 const atiraOrbit = createHorizontalEllipseOrbit(230, 200, -50, 0, 0x737373);
 scene.add(atiraOrbit);
 
@@ -492,21 +492,19 @@ addAsteroidLabels();
 function animateAsteroids() {
   requestAnimationFrame(animateAsteroids);
 
-  // Update Amors asteroid position (moving in X-Z plane)
-  amor.position.x = -30 + 320 * Math.cos(Date.now() * 0.0005);  // Adjusted for elliptical shape
-  amor.position.z = 290 * Math.sin(Date.now() * 0.0005);        // Z axis for movement
+  amor.position.x = -30 + 320 * Math.cos(Date.now() * 0.0005);  
+  amor.position.z = 290 * Math.sin(Date.now() * 0.0005);       
 
-  // Update Apollos asteroid position (moving in X-Z plane)
-  apollo.position.x = 40 + 360 * Math.cos(Date.now() * 0.00045); // Different orbital speed
-  apollo.position.z = 290 * Math.sin(Date.now() * 0.00045);      // Z axis for movement
+  apollo.position.x = 40 + 360 * Math.cos(Date.now() * 0.00045); 
+  apollo.position.z = 290 * Math.sin(Date.now() * 0.00045);      
 
-  // Update Atens asteroid position (moving in X-Z plane)
+  
   aten.position.x = 20 + 270 * Math.cos(Date.now() * 0.0006);
-  aten.position.z = 290 * Math.sin(Date.now() * 0.0006);         // Z axis for movement
+  aten.position.z = 290 * Math.sin(Date.now() * 0.0006);         
 
   // Update Atiras asteroid position (moving in X-Z plane)
   atira.position.x = -50 + 250 * Math.cos(Date.now() * 0.0007);
-  atira.position.z = 200 * Math.sin(Date.now() * 0.0007);        // Z axis for movement
+  atira.position.z = 200 * Math.sin(Date.now() * 0.0007);        
 
 
   renderer.render(scene, camera);
