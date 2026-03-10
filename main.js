@@ -11,7 +11,7 @@ const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg')
 // Set the camera starting position
 camera.position.set(800, 200, -200);  
 
-camera.lookAt(0, 0, 0);  // Change the target coordinates as needed
+camera.lookAt(0, 0, 0);  // camera point
 
 
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -227,9 +227,9 @@ animateNeptune();
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// Enable damping (smooth transitions)
+// Enable damping(smooth)
 controls.enableDamping = true;
-controls.dampingFactor = 0.3;  // Controls how much damping there is (lower is smoother)
+controls.dampingFactor = 0.3;  // Smoothing
 
 // Control the zoom speed (adjust to your preference)
 controls.zoomSpeed = 0.4;  // Lower value for slower zoom, higher for faster
@@ -322,7 +322,7 @@ const focusDistance = Math.sqrt(semiMajorAxis**2 - semiMinorAxis**2); // Distanc
 const halleyOrbitPoints = new THREE.Curve();
 halleyOrbitPoints.getPoint = function(t) {
   const angle = t * 2 * Math.PI;
-  const x = semiMajorAxis * Math.cos(angle) - focusDistance; // Shift ellipse so that one focus is close to the Sun
+  const x = semiMajorAxis * Math.cos(angle) - focusDistance; //
   const z = semiMinorAxis * Math.sin(angle);
   return new THREE.Vector3(x, 0, z);
 };
@@ -335,7 +335,7 @@ scene.add(halleyOrbit);
 
 // Create Halley's Comet object
 const halleyLoader = new THREE.TextureLoader();
-const halleyTexture = halleyLoader.load('halleys-texture.jpg');  // Replace with your comet texture
+const halleyTexture = halleyLoader.load('halleys-texture.jpg');  
 const halleyGeometry = new THREE.SphereGeometry(0.5, 32, 32);
 const halleyMaterial = new THREE.MeshBasicMaterial({ map: halleyTexture });
 const halley = new THREE.Mesh(halleyGeometry, halleyMaterial);
@@ -356,7 +356,7 @@ function animateHalleyComet() {
 animateHalleyComet();
 
 
-// Add "Halley's Comet wooooooo!
+// "Halley's Comet wooooooo!
 const halleyLabelDiv = document.createElement('div');
 halleyLabelDiv.textContent = "Halley's Comet ❄";
 halleyLabelDiv.style.position = 'absolute';
@@ -383,7 +383,7 @@ function updateHalleyLabel() {
 updateHalleyLabel();
 
 
-// Function to create horizontal ellipses (orbital paths) in the X-Z plane
+// Function to create horizontal orbital paths in the X-Z plane
 function createHorizontalEllipseOrbit(a, b, xOffset, zOffset, color) {
   const curve = new THREE.EllipseCurve(
     0, 0,              // Center offset for orbit (will adjust in position)
