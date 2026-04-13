@@ -123,17 +123,6 @@ npm install
 npm run dev
 ```
 
----
-
-## Why This Project Works
-
-* Translates **orbital inequalities → spatial intuition**
-* Uses **mathematics as a design tool**, not just computation
-* Demonstrates strong control over **real-time 3D systems**
-* Keeps a clean boundary between **data representation vs simulation**
-
----
-
 ## Extensions
 
 * Mapping real NEO datasets into this framework
